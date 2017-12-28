@@ -3,7 +3,7 @@ iOS Weather app build with Swift 4.0
 
 
 ## RoadMap
-- Get Current Weather for Location GPS
+~~- Get Current Weather for Location GPS~~
 - Settings Screen to Set Units F or C  
 - 5 days Forecast display in a TableView
 - Display more information about Today Weather
