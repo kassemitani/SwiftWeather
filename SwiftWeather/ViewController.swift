@@ -18,8 +18,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var lblCityName: UILabel!
     @IBOutlet var lblWeatherSummary: UILabel!
     @IBOutlet var lblWeatherDegrees: UILabel!
-    let apiKey = "3962ffa8c0a12cbe2bc27a120e602ee5"
-    let baseURL = "https://api.openweathermap.org/data/2.5/weather?"
+    let APIKEY = "3962ffa8c0a12cbe2bc27a120e602ee5"
+    let BASEURL = "https://api.openweathermap.org/data/2.5/"
+    let WEATHER = "weather?"
     var lat = 0.0
     var lng = 0.0
     var units = "metric"
@@ -44,9 +45,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if let location = locations.first {
             lat = location.coordinate.latitude
             lng = location.coordinate.longitude
-            loadWeather()
-            //            getReverseGeoCoding()
-            //            manager.stopUpdatingLocation()
+            loadCurrentWeather()
+//            manager.stopUpdatingLocation()
         }
     }
     
@@ -81,8 +81,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    func loadWeather() {
-        let url = "\(baseURL)lat=\(lat)&lon=\(lng)&appid=\(apiKey)&units=\(units)"
+    func loadCurrentWeather() {
+        let url = "\(BASEURL)\(WEATHER)lat=\(lat)&lon=\(lng)&appid=\(APIKEY)&units=\(units)"
         
         Alamofire.request(url).responseJSON { response in
             if let json = response.result.value as? [String: Any] {
